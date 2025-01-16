@@ -54,14 +54,14 @@ export default function Header() {
               About
             </Link>
             <Link
-              href="/projects"
+              href="/blogs"
               className={`px-4 py-2 rounded-lg ${
-                path === '/projects'
+                path === '/blogs'
                   ? 'bg-indigo-500 text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
-              Posts
+              Blogs
             </Link>
           </nav>
 
