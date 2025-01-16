@@ -1,4 +1,4 @@
-import BlogCard from './BlogCard'; 
+import BlogCard from './BlogCard';
 
 export default function BlogList({ blogs }) {
   return (
@@ -6,6 +6,7 @@ export default function BlogList({ blogs }) {
       {blogs.map((blog) => (
         <BlogCard
           key={blog.id}
+          slug={blog.slug || blog.title.replace(/\s+/g, '-').toLowerCase()} 
           title={blog.title}
           description={blog.description?.slice(0, 100) || 'No description available'}
           author={blog.author}
