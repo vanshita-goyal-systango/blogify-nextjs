@@ -1,23 +1,18 @@
 import { notFound } from 'next/navigation';
 import classes from './page.module.css';
-
-async function getBlogBySlug(slug) {
-  try {
-    const res = await fetch(`https://6788b3132c874e66b7d5f5b4.mockapi.io/blogs`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch blogs`);
-    }
-
-    const blogs = await res.json();
-    return blogs.find((blog) => blog.title.toLowerCase().replace(/\s+/g, '-') === slug) || null;
-  } catch (error) {
-    console.error('Error fetching blog:', error);
-    return null;
-  }
-}
+import { getAllBlogs } from '@/lib/blogs';
 
 export default async function BlogDetailsPage({ params }) {
-  const blog = await getBlogBySlug(params.blogSlug);
+
+  const { blogSlug } = await params;
+
+  if (!blogSlug) {
+    notFound();
+  }
+
+  const blogs = await getAllBlogs();
+  
+  const blog = blogs.find((b) => b.title.toLowerCase().replace(/\s+/g, '-') === blogSlug);
 
   if (!blog) {
     notFound();
@@ -35,7 +30,7 @@ export default async function BlogDetailsPage({ params }) {
           <p className={classes.date}>{new Date(blog.date).toLocaleDateString()}</p>
         </div>
       </header>
-      <main className={classes.content}>
+      <main className={classes.description}>
         <p>{blog.description}</p>
       </main>
     </>
