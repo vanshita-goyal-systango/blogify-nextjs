@@ -4,7 +4,7 @@ import { useState } from 'react';
 import EditModal from './blogs/EditModal';
 export default function BlogActions({ blogId, blog }) {
   const [isLoading, setIsLoading] = useState(false);
-  const [isEditing, setIsEditing] = useState(false); // Track if the edit modal is open
+  const [isEditing, setIsEditing] = useState(false); 
 
   const handleDelete = async () => {
     setIsLoading(true);
@@ -16,17 +16,16 @@ export default function BlogActions({ blogId, blog }) {
   };
 
   const handleEdit = () => {
-    setIsEditing(true); // Open the edit modal
+    setIsEditing(true); 
   };
 
   const handleSave = () => {
-    // Refresh blog data or update UI after save, such as closing modal
     setIsEditing(false);
     alert('Blog updated successfully');
   };
 
   const handleClose = () => {
-    setIsEditing(false); // Close the edit modal
+    setIsEditing(false); 
   };
 
   return (
@@ -45,7 +44,6 @@ export default function BlogActions({ blogId, blog }) {
         {isLoading ? 'Deleting...' : 'Delete'}
       </button>
 
-      {/* Show EditModal when isEditing is true */}
       {isEditing && (
         <EditModal
           blog={blog}

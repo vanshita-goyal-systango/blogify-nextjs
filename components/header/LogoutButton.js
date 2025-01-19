@@ -1,24 +1,20 @@
-// components/LogoutButton.js
 'use client';
 import { useState, useEffect } from 'react';
 import { redirect } from 'next/navigation';
 
 export default function LogoutButton() {
-  const [isAdmin, setIsAdmin] = useState(null); // null to prevent mismatch on first render
-
+  const [isAdmin, setIsAdmin] = useState(null); 
   useEffect(() => {
-    // Check admin status only on the client side
     const adminStatus = localStorage.getItem('isAdmin') === 'true';
     setIsAdmin(adminStatus);
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('isAdmin');
-    setIsAdmin(false); // Update state after logout
-    redirect('/'); // Redirect to home after logout using `redirect`
+    setIsAdmin(false); 
+    redirect('/'); 
   };
 
-  // Prevent rendering until the admin status is checked
   if (isAdmin === null) return null;
 
   return (
