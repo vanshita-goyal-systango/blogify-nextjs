@@ -4,20 +4,12 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 
 export default function Header() {
   const path = usePathname();
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false); 
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-
-
-  if (!mounted) return null;
 
   return (
     <header className="border-b-2 bg-white dark:bg-gray-900">
@@ -43,16 +35,10 @@ export default function Header() {
             >
               Home
             </Link>
-            <Link
-              href="/about"
-              className={`px-4 py-2 rounded-lg ${
-                path === '/about'
-                  ? 'bg-indigo-500 text-white'
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-              }`}
-            >
-              About
-            </Link>
+
+            <LoginButton />
+            <LogoutButton />
+
             <Link
               href="/blogs"
               className={`px-4 py-2 rounded-lg ${
@@ -69,7 +55,6 @@ export default function Header() {
             <input
               type="text"
               placeholder="Search..."
-             
               className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             />
             <button
