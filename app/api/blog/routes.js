@@ -1,5 +1,3 @@
-// File: blog-website-main/app/api/blogs/route.js
-
 import { NextResponse } from "next/server";
 
 const API_URL = "https://6788b3132c874e66b7d5f5b4.mockapi.io/blogs";

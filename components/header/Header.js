@@ -53,20 +53,7 @@ export default function Header() {
           </nav>
 <SearchButton/>
 
-{/* 
-          <form className="relative hidden lg:block">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-            />
-            <button
-              type="submit"
-              className="absolute right-2 top-2 text-gray-500 dark:text-gray-300"
-            >
-              <AiOutlineSearch size={20} />
-            </button>
-          </form> */}
+
         </div>
 
         <button
