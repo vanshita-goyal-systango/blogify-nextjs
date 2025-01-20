@@ -1,6 +1,12 @@
 'use client';
 import { redirect } from 'next/navigation';
 
+export const metadata ={
+  title : "Share Blogs ",
+  description: "Explore blogs shared by our community"
+}
+
+
 export default function CreateBlog() {
   async function handleSubmit(event) {
     event.preventDefault();

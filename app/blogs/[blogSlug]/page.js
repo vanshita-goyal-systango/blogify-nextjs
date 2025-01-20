@@ -2,6 +2,12 @@ import { notFound } from 'next/navigation';
 import classes from './page.module.css';
 import { getAllBlogs } from '@/lib/blogs';
 
+export const metadata ={
+  title : "Blog Details",
+  description: "Explore blogs shared by our community"
+}
+
+
 export default async function BlogDetailsPage({ params }) {
 
   const { blogSlug } = await params;

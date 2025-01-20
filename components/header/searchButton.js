@@ -1,6 +1,7 @@
+import { Search } from "lucide-react";
 export default function SearchButton() {
     return (
-        <form action="/" method="GET" className="flex-1 max-w-lg">
+        <form action="/blogs" method="GET" className="flex-1 max-w-lg">
             <div className="relative">
                 <input
                     type="text"

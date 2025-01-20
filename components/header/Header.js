@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
+import SearchButton from './SearchButton';
 
 export default function Header() {
   const path = usePathname();
@@ -50,7 +51,9 @@ export default function Header() {
               Blogs
             </Link>
           </nav>
+<SearchButton/>
 
+{/* 
           <form className="relative hidden lg:block">
             <input
               type="text"
@@ -63,7 +66,7 @@ export default function Header() {
             >
               <AiOutlineSearch size={20} />
             </button>
-          </form>
+          </form> */}
         </div>
 
         <button
