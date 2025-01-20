@@ -1,19 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { AiOutlineSearch } from "react-icons/ai";
+import UserLogin from "./UserLogin";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
 import SearchButton from "./SearchButton";
+import AuthContextProvider from "@/lib/contexts/AuthContext";
 
 export default function Header() {
   const path = usePathname();
   const { theme, setTheme } = useTheme();
   const [isAdmin, setIsAdmin] = useState(false);
 
+
+ 
   useEffect(() => {
     const adminStatus = localStorage.getItem("isAdmin") === "true";
     setIsAdmin(adminStatus);
@@ -44,7 +46,6 @@ export default function Header() {
             </Link>
 
             {!isAdmin && <LoginButton />}
-            {isAdmin && <LogoutButton setIsAdmin={setIsAdmin}/>}
             <Link
               href="/blogs"
               className={`px-4 py-2 rounded-lg ${
@@ -65,7 +66,11 @@ export default function Header() {
         >
           {theme === "light" ? <FaSun size={18} /> : <FaMoon size={18} />}
         </button>
+        <AuthContextProvider>
+            <UserLogin />
+        </AuthContextProvider>
       </div>
+
     </header>
   );
 }
