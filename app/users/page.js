@@ -13,7 +13,7 @@ export default function Home() {
               <p className="text-gray-800 dark:text-gray-100">Write and share your blogs with the world.</p>
             </div>
             <Link
-              href="/blogs"
+              href="/users/blogs"
               className="inline-block mt-4 py-2 px-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-400 text-white font-bold hover:from-blue-500 hover:to-purple-300 dark:bg-gradient-to-r dark:from-indigo-500 dark:to-purple-500"
             >
               Explore Blogs

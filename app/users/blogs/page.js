@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import BlogList from '@/components/blogs/BlogList';
 import classes from './page.module.css';
+import ShareBlog from './ShareBlogs';
 
 export const metadata = {
   title: "All blogs",
@@ -42,9 +43,7 @@ export default async function BlogsPage({ searchParams }) {
         <p>
           Choose your favorite blog and share it with the world. It's easy and fun!
         </p>
-        <p className={classes.cta}>
-          <Link href="/blogs/share">Share Your Favorite Blog</Link>
-        </p>
+       <ShareBlog/>
       </header>
       
       <main className={classes.main}>

@@ -1,21 +1,15 @@
 import { notFound } from 'next/navigation';
 import classes from './page.module.css';
 import { getAllBlogs } from '@/lib/blogs';
-
-
-
-
 export default async function BlogDetailsPage({ params }) {
 
   const { blogSlug } = await params;
-
   if (!blogSlug) {
     notFound();
   }
 
   const blogs = await getAllBlogs();
-  
-  const blog = blogs.find((b) => b.title.toLowerCase().replace(/\s+/g, '-') === blogSlug);
+  const blog = blogs.find((b) => b.id === blogSlug);
 
   if (!blog) {
     notFound();

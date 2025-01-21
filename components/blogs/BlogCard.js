@@ -18,7 +18,7 @@ export default function BlogCard({ slug, title, description, author, date, thumb
         </div>
         <div className="mt-4">
           <Link
-            href={`/blogs/${slug}`} 
+            href={`/users/blogs/${slug}`} 
             className="text-blue-600 dark:text-blue-400 hover:underline"
           >
             View Details

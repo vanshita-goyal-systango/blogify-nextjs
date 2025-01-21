@@ -32,3 +32,26 @@
     font-weight: bold;
     text-decoration: none;
   } 
+  .authPrompt {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(90deg, #261e80, #6d4d87);
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+
+  }
+  
+  .loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: #888;
+  }
+
+
+
+

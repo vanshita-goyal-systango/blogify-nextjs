@@ -25,7 +25,7 @@ export default function CreateBlog() {
 
     if (response.ok) {
       alert('Blog created successfully!');
-      redirect('/blogs');
+      redirect('/users/blogs');
 
     } else {
       alert('Failed to create blog.');
