@@ -1,14 +1,12 @@
 'use client';
 import { redirect } from 'next/navigation';
-
-
-
+import React, { FormEvent } from 'react';
 
 export default function CreateBlog() {
-  async function handleSubmit(event) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.currentTarget);
     const newBlog = {
       title: formData.get('title'),
       description: formData.get('description'),

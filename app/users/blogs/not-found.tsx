@@ -1,4 +1,6 @@
-export default function NotFound() {
+import React from 'react';
+
+const NotFound: React.FC = () => {
   return (
     <main className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <h1 className="text-4xl font-bold text-red-600">Blogs Not Found</h1>
@@ -7,4 +9,6 @@ export default function NotFound() {
       </p>
     </main>
   );
-}
+};
+
+export default NotFound;

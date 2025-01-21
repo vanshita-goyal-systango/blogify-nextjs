@@ -6,9 +6,15 @@ import AdminCheck from "@/components/AdminCheck";
 import BlogActions from "@/components/BlogActions";
 import LogoutButton from "./LogoutButton";
 
-export default function AdminDashboard() {
-  const [blogs, setBlogs] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
+interface Blog {
+  id: string;
+  title: string;
+  description: string;
+}
+
+const AdminDashboard: React.FC = () => {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -45,4 +51,6 @@ export default function AdminDashboard() {
       ))}
     </div>
   );
-}
+};
+
+export default AdminDashboard;

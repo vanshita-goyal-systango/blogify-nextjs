@@ -2,20 +2,31 @@ import Link from 'next/link';
 import BlogList from '@/components/blogs/BlogList';
 import classes from './page.module.css';
 import ShareBlog from './ShareBlogs';
+import { Metadata } from 'next';
 
-export const metadata = {
+interface Blog {
+  id: string;
+  title: string;
+  description: string;
+  content: string;
+  author: string;
+  date: string;
+  image?: string; 
+}
+
+export const metadata: Metadata = {
   title: "All blogs",
   description: "Explore blogs shared by our community"
 };
 
-async function fetchBlogs(searchQuery = "") {
+async function fetchBlogs(searchQuery: string = ""): Promise<Blog[]> {
   const res = await fetch('https://6788b3132c874e66b7d5f5b4.mockapi.io/blogs', { cache: 'no-store' });
 
   if (!res.ok) {
     throw new Error("Failed to fetch blogs");
   }
 
-  const blogs = await res.json();
+  const blogs: Blog[] = await res.json();
 
   return blogs.filter(blog => {
     const title = blog.title?.toLowerCase() || "";
@@ -30,7 +41,13 @@ async function fetchBlogs(searchQuery = "") {
   });
 }
 
-export default async function BlogsPage({ searchParams }) {
+interface BlogsPageProps {
+  searchParams?: {
+    query?: string;
+  };
+}
+
+export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   const searchQuery = searchParams?.query || ""; 
   const blogs = await fetchBlogs(searchQuery); 
 

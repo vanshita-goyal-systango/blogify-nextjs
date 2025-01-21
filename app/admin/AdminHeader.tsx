@@ -1,25 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import UserLogin from "./UserLogin";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import LoginButton from "./LoginButton";
-import SearchButton from "./SearchButton";
-import AuthContextProvider from "@/lib/contexts/AuthContext";
+import React from "react";
 
-export default function Header() {
+const AdminHeader: React.FC = () => {
   const path = usePathname();
   const { theme, setTheme } = useTheme();
-  // const [isAdmin, setIsAdmin] = useState(false);
 
-
- 
-  // useEffect(() => {
-  //   const adminStatus = localStorage.getItem("isAdmin") === "true";
-  //   setIsAdmin(adminStatus);
-  // }, [localStorage.getItem("isAdmin") === "true"]);
   return (
     <header className="border-b-2 bg-white dark:bg-gray-900">
       <div className="container mx-auto flex items-center justify-between p-4">
@@ -37,7 +26,7 @@ export default function Header() {
             <Link
               href="/users"
               className={`px-4 py-2 rounded-lg ${
-                path === "/users"
+                path === "/"
                   ? "bg-indigo-500 text-white"
                   : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
               }`}
@@ -45,11 +34,10 @@ export default function Header() {
               Home
             </Link>
 
-            {/* {!isAdmin && <LoginButton />} */}
             <Link
               href="/users/blogs"
               className={`px-4 py-2 rounded-lg ${
-                path === "/users/blogs"
+                path === "/blogs"
                   ? "bg-indigo-500 text-white"
                   : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
               }`}
@@ -57,7 +45,6 @@ export default function Header() {
               Blogs
             </Link>
           </nav>
-          <SearchButton />
         </div>
 
         <button
@@ -66,11 +53,9 @@ export default function Header() {
         >
           {theme === "light" ? <FaSun size={18} /> : <FaMoon size={18} />}
         </button>
-        <AuthContextProvider>
-            <UserLogin />
-        </AuthContextProvider>
       </div>
-
     </header>
   );
-}
+};
+
+export default AdminHeader;

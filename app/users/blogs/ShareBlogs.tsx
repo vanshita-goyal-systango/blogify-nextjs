@@ -4,8 +4,7 @@ import Link from "next/link";
 import classes from './page.module.css';
 import { useAuth } from "@/lib/contexts/AuthContext";
 
-
-export default function ShareBlog() {
+const ShareBlog: React.FC = () => {
   const { user, isLoading } = useAuth();
 
   if (isLoading) {
@@ -16,7 +15,6 @@ export default function ShareBlog() {
     );
   }
   
-
   return (
     <div>
       {user ? (
@@ -30,5 +28,6 @@ export default function ShareBlog() {
         )}
     </div>
   );
-}
-// /Users/macmini46/Desktop/Next-js/blogify/app/blogs/ShareBlogs.js
+};
+
+export default ShareBlog;

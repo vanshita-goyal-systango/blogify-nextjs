@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import React from 'react';
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <>
       <header className="flex flex-col items-center justify-center my-12 mx-auto w-11/12 max-w-6xl">
@@ -45,4 +46,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default Home;
