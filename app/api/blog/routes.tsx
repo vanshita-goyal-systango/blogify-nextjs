@@ -10,15 +10,15 @@ interface Blog {
 
 export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
-    const query = searchParams.get("query")?.toLowerCase() || "";
+    const query = await searchParams.get("query")?.toLowerCase() ?? "";
 
     try {
         const response = await fetch(API_URL);
         const blogs: Blog[] = await response.json();
 
         const filteredBlogs = blogs.filter(blog =>
-            blog.title.toLowerCase().includes(query) ||
-            blog.description.toLowerCase().includes(query) ||
+            blog.title.toLowerCase().includes(query) ??
+            blog.description.toLowerCase().includes(query) ??
             blog.content.toLowerCase().includes(query)
         );
 

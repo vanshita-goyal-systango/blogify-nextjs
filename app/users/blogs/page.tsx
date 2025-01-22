@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import BlogList from '@/components/blogs/BlogList';
 import classes from './page.module.css';
 import ShareBlog from './ShareBlogs';
@@ -42,15 +41,17 @@ async function fetchBlogs(searchQuery: string = ""): Promise<Blog[]> {
 }
 
 interface BlogsPageProps {
-  searchParams?: {
+  searchParams?: Promise<{
     query?: string;
-  };
+  }> 
 }
 
 export default async function BlogsPage({ searchParams }: BlogsPageProps) {
-  const searchQuery = searchParams?.query || ""; 
-  const blogs = await fetchBlogs(searchQuery); 
+  const searchParamsValue = searchParams ? await searchParams : {};  
 
+  const searchQuery = searchParamsValue.query;  
+  
+  const blogs = await fetchBlogs(searchQuery); 
   return (
     <>
       <header className={classes.header}>

@@ -15,3 +15,10 @@ export async function getAllBlogs(): Promise<Blog[]> {
   }
   return await res.json();
 }
+export async function getBlog(): Promise<Blog[]> {
+  const res = await fetch("https://6788b3132c874e66b7d5f5b4.mockapi.io/blogs/");
+  if (!res.ok) {
+    throw new Error("Failed to fetch blogs");
+  }
+  return await res.json();
+}
