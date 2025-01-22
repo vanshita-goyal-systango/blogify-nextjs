@@ -2,7 +2,7 @@ import { Search } from "lucide-react";
 
 const SearchButton: React.FC = () => {
   return (
-    <form action="/blogs" method="GET" className="flex-1 max-w-lg">
+    <form action="/users/blogs" method="GET" className="flex-1 max-w-lg">
       <div className="relative">
         <input
           type="text"
